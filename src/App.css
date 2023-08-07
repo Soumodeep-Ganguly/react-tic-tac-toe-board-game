@@ -1,0 +1,73 @@
+.the-game {
+  display: 'flex';
+  justify-content: 'center';
+  text-align: center;
+}
+
+/* .board */
+
+.board-area {
+  width: 280px;
+  margin: auto;
+  border: 10px solid #383A39;
+  border-radius: 10px;
+  background-color: #EEE4E3;
+  padding: 20px;
+  display: 'flex';
+  justify-content: 'center';
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-spacing: 10px; /* Adjust the gap size */
+  background-color: #383A39; /* Set the gap color */
+  border-radius: 10px; /* Set the border radius for rounded edges */
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background-color: #EEE4E3;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 80px;
+}
+
+.cell:hover {
+  background-color: darkgray;
+}
+
+.X {
+  color: #FB4949;
+}
+
+.O {
+  color: #0178BC;
+}
+
+.winner {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
