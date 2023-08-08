@@ -7,9 +7,10 @@ function App() {
   const [board, setBoard] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
+  const [draw, setDraw] = useState(false);
 
   const handleCellClick = (index) => {
-    if (board[index] === '' && !winner) {
+    if (board[index] === '' && !winner && !draw) {
       const updatedBoard = [...board];
       updatedBoard[index] = currentPlayer;
       setBoard(updatedBoard);
@@ -37,12 +38,19 @@ function App() {
         break;
       }
     }
+
+    let countEmptySpace = 0
+    for(let cell of board) {
+      if(cell === "") countEmptySpace++
+    }
+    if(countEmptySpace === 0) setDraw(true)
   };
 
   const resetGame = () => {
     setBoard(initialBoard);
     setCurrentPlayer('X');
     setWinner(null);
+    setDraw(false)
   };
 
   const renderCells = () => {
@@ -67,9 +75,9 @@ function App() {
           </div>
         </div>
       </div>
-      {winner && (
+      {(winner || draw) && (
         <div className="winner">
-          <p>{`Congratulations!!! ${winner} wins!!!`}</p>
+          {winner && <p>{`Congratulations!!! ${winner} wins!!!`}</p>}
           <button onClick={resetGame}>Restart</button>
         </div>
       )}
